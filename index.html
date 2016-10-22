@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Text Selector Eigen</title>
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<style type="text/css">
+    .highlight
+    {
+        background-color: #00FF00;
+    }
+    .un-highlight
+    {
+        background-color: #ffffdd;
+    }
+</style>
+
+<body ng-app="app">
+<div class="container" ng-controller="Ctrl">
+    <div ng-mouseup="highlightText()" class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <h2>{{parag_data[0].parag}}</h2>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div>
+                <p ng-repeat="item in parag_data">
+                    {{item.parag}}
+                </p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <p class="lead"> User Selections</p>
+            <div class="well" ng-repeat="words in words_list">
+                <p><strong>Selection {{$index + 1}}</strong> <span ng-click="highlightRemove($index)" class="btn btn-danger btn-sm pull-right">Remove</span></p>
+                <p>
+                    <small>{{ words.text }}</small><br>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="libs/angular/angular.js"></script>
+<script src="script/app.js"></script>
+
+<script src="libs/jquery/dist/jquery.min.js"></script>
+<script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
